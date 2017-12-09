@@ -37,6 +37,31 @@ class Card:
     #     return self.rank < other.rank
 '''    
     
-card1 = Card(2, 11)
+class Deck:
+    """Represents a deck of cards.
 
-print(card1)
+        Attributes:
+          cards: list of Card objects.
+        """
+
+    # Initializes the Deck with 52 cards.
+
+    def __init__(self):
+        self.cards = []
+        for suit in range(4):
+            for rank in range(1, 14):
+                card = Card(suit, rank)
+                self.cards.append(card)
+
+            # Returns a string representation of the deck
+
+    def __str__(self):
+        res = []
+        for card in self.cards:
+            res.append(str(card))
+        return '\n'.join(res)
+
+
+deck = Deck()
+
+print(deck)
